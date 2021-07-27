@@ -809,7 +809,8 @@ def verify_checkpoint_directory(save_dir: str) -> None:
         )
         raise e
     else:
-        os.remove(temp_file_path)
+        # os.remove(temp_file_path)
+        pass
 
 
 def load_ema_from_checkpoint(fpath):
@@ -856,3 +857,4 @@ def load_ema_from_checkpoint(fpath):
 
     new_state['model'] = params_dict
     return new_state
+
