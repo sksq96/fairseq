@@ -366,6 +366,41 @@ def bart_base_architecture(args):
     bart_large_architecture(args)
 
 
+@register_model_architecture("bart", "bart_24L_1024")
+def bart_base_architecture(args):
+    args.encoder_embed_dim = getattr(args, "encoder_embed_dim", 1024)
+    args.encoder_ffn_embed_dim = getattr(args, "encoder_ffn_embed_dim", 4 * 1024)
+    args.encoder_layers = getattr(args, "encoder_layers", 24)
+    args.encoder_attention_heads = getattr(args, "encoder_attention_heads", 16)
+    args.decoder_layers = getattr(args, "decoder_layers", 24)
+    args.decoder_attention_heads = getattr(args, "decoder_attention_heads", 16)
+    bart_large_architecture(args)
+
+
+@register_model_architecture("bart", "bart_24L_1536")
+def bart_base_architecture(args):
+    args.encoder_embed_dim = getattr(args, "encoder_embed_dim", 1536)
+    args.encoder_ffn_embed_dim = getattr(args, "encoder_ffn_embed_dim", 4 * 1536)
+    args.encoder_layers = getattr(args, "encoder_layers", 24)
+    args.encoder_attention_heads = getattr(args, "encoder_attention_heads", 16)
+    args.decoder_layers = getattr(args, "decoder_layers", 24)
+    args.decoder_attention_heads = getattr(args, "decoder_attention_heads", 16)
+    bart_large_architecture(args)
+
+
+@register_model_architecture("bart", "bart_32L")
+def bart_base_architecture(args):
+    args.encoder_embed_dim = getattr(args, "encoder_embed_dim", 2048)
+    args.encoder_ffn_embed_dim = getattr(args, "encoder_ffn_embed_dim", 4 * 2048)
+    args.encoder_layers = getattr(args, "encoder_layers", 28)
+    args.encoder_attention_heads = getattr(args, "encoder_attention_heads", 16)
+    args.decoder_layers = getattr(args, "decoder_layers", 28)
+    args.decoder_attention_heads = getattr(args, "decoder_attention_heads", 16)
+    bart_large_architecture(args)
+
+
+    
+
 @register_model_architecture("bart", "mbart_large")
 def mbart_large_architecture(args):
     args.no_scale_embedding = getattr(args, "no_scale_embedding", False)
